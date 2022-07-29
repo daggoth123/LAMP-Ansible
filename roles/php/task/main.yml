@@ -1,0 +1,11 @@
+- name: Install php74
+  yum:
+    name: 
+    - php74
+    - php74-php-soap
+    - php74-php-fileinfo
+    - php74-php-gd
+    - php74-php-imap
+    - php74-php-mysqld
+    - php74-php-pdo
+    state: latest
