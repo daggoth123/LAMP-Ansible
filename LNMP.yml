@@ -1,3 +1,11 @@
+- name: Login to server
+  hosts: all
+  vars:
+    machine:
+      username: '{{ my_user }}'
+      password: '{{ my password }}'
+  
+
 - name: Install LNMP
   hosts: all
   remote_user: root
