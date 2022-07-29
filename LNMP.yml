@@ -1,5 +1,5 @@
-- hosts: all
-  name: install LNMP
+- name: Install LNMP
+  hosts: all
   remote_user: root
 
   roles:
