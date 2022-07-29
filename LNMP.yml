@@ -1,0 +1,9 @@
+- hosts: all
+  name: install LNMP
+  remote_user: root
+
+  roles:
+    - httpd
+    - php
+    - mariadb
+    
