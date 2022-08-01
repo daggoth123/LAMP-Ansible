@@ -2,7 +2,7 @@
   vars:
     machine:
       username: '{{ my_user }}'
-      password: '{{ my password }}'
+      password: '{{ my_password }}'
 
  # tasks:
  # - debug:

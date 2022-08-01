@@ -1,2 +1,2 @@
-ansible_user: "root"
-ansible_password: "Brooks"
+my_user: "root"
+my_password: "Brooks"
