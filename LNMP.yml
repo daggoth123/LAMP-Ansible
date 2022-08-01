@@ -4,9 +4,9 @@
       username: '{{ my_user }}'
       password: '{{ my password }}'
 
-  tasks:
-  - debug:
-      var: machine
+ # tasks:
+ # - debug:
+ #     var: machine
   
 
   
