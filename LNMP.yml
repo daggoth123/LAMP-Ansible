@@ -4,6 +4,10 @@
     machine:
       username: '{{ my_user }}'
       password: '{{ my password }}'
+
+tasks:
+  - debug:
+      var: machine
   
 
 - name: Install LNMP
