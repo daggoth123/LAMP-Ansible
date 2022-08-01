@@ -1,17 +1,16 @@
-- name: Login to server
-  hosts: all
+- hosts: all
   vars:
     machine:
       username: '{{ my_user }}'
       password: '{{ my password }}'
 
-tasks:
+  tasks:
   - debug:
       var: machine
   
 
-- name: Install LNMP
-  hosts: all
+  
+  name: Install LNMP
   remote_user: root
 
   roles:

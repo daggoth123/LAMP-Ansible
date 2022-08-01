@@ -18,7 +18,7 @@
 # Ex 2: A collection of hosts belonging to the 'webservers' group
 
  [webservers]
-localhost
+192.168.1.151
 192.168.1.152
 ## alpha.example.org
 ## beta.example.org
