@@ -18,8 +18,8 @@
 # Ex 2: A collection of hosts belonging to the 'webservers' group
 
  [webservers]
-192.168.1.151
-192.168.1.152
+67.225.161.177
+67.227.214.163
 ## alpha.example.org
 ## beta.example.org
 ## 192.168.1.100

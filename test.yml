@@ -1,0 +1,6 @@
+- hosts: '{{ target }}'
+  name:
+  tasks:
+    - name: Backup All Databases to /home/temp/mysql
+      shell:  mkdir /home/temp/mysql && cd /home/temp/mysql; echo "SHOW DATABASES;" mysql -Bs| while read i ; do echo Dumping $i ; mysqldump --single-transaction $i | gzip -c > $i.sql.gz ; done
+

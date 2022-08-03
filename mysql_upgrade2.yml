@@ -1,4 +1,4 @@
-- hosts: "{{ target }}"
+- hosts: all
 
   tasks:
   - name: Backup all Datababes /home/temp/mysql
@@ -10,12 +10,7 @@
       state: stopped
 
   - name: Backup SQL directory
-    copy:
-      src: /var/lib/mysql
-      dest: /var/lib/mysql.bak
-      owner: mysql
-      group: mysql
-      mode: '0755'
+    shell: cp -ar /var/lib/mysql/ /var/lib/mysql.bak/
     
   - name: Remove MariaDB
     yum:
