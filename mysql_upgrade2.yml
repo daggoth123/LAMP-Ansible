@@ -14,6 +14,7 @@
     copy:
       src: /var/lib/mysql
       dest: /var/lib/mysql.bak
+      directory_mode=yes
       owner: mysql
       group: mysql
       mode: '0755'
