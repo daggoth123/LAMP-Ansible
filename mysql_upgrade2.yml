@@ -14,7 +14,7 @@
     
   - name: Remove MariaDB
     yum:
-      name: mariadb, MariaDB*
+      name: mariadb, MariaDB*, galera*
       state: absent
 
   - name: Install MariaDB Repo
