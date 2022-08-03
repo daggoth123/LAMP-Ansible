@@ -11,7 +11,6 @@
       state: stopped
 
   - name: Backup SQL directory
-    
     copy:
       src: /var/lib/mysql/
       dest: /var/lib/mysql.bak/
