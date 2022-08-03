@@ -10,7 +10,7 @@
       state: stopped
 
   - name: Backup SQL directory
-    shell: cp -ar mysql/ "mysql.$(date +"%Y%m%d-%H%M%S")"
+    shell: cp -ar /var/lib/mysql/ "/var/lib/mysql.$(date +"%Y%m%d-%H%M%S")"
     
   - name: Remove MariaDB
     yum:
