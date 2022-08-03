@@ -17,7 +17,9 @@
       name: "{{ packages }}"
     vars:
       packages:
-      - MariaDB
+      - mariadb
+      - MariaDB-client
+      - MariaDB-common
       - MariaDB-server
       state: absent
 
@@ -29,7 +31,7 @@
       name: "{{ packages }}"
     vars:
       packages:
-      - MariaDB
+      - mariadb
       - MariaDB-server
       - MariaDB-client
       - MariaDB-common
