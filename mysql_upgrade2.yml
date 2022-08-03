@@ -10,6 +10,7 @@
       state: stopped
 
   - name: Backup SQL directory
+    remote_user: root
     copy:
       src: /var/lib/mysql
       dest: /var/lib/mysql.bak
