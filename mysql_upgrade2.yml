@@ -10,7 +10,7 @@
       state: stopped
 
   - name: Backup SQL directory
-    shell: cp -ar /var/lib/mysql/ /var/lib/mysql.bak/
+    shell: cp -ar mysql/ "mysql.$(date +"%Y%m%d-%H%M%S")"
     
   - name: Remove MariaDB
     yum:
@@ -21,10 +21,10 @@
       - MariaDB-server
       state: absent
 
-  - name: Install MariaDB repo 10.3
+  - name: Install MariaDB Repo
     shell: "{{ mariadb_version }}"
 
-  - name: Install MariaDB 10.3
+  - name: Install MariaDB
     yum:
       name: "{{ packages }}"
     vars:
