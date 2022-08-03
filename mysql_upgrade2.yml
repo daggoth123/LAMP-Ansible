@@ -14,13 +14,7 @@
     
   - name: Remove MariaDB
     yum:
-      name: "{{ packages }}"
-    vars:
-      packages:
-      - mariadb
-      - MariaDB-client
-      - MariaDB-common
-      - MariaDB-server
+      name: mariadb
       state: absent
 
   - name: Install MariaDB Repo
