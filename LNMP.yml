@@ -1,0 +1,20 @@
+- hosts: all
+  vars:
+    machine:
+      username: '{{ my_user }}'
+      password: '{{ my_password }}'
+
+ # tasks:
+ # - debug:
+ #     var: machine
+  
+
+  
+  name: Install LNMP
+  remote_user: root
+
+  roles:
+    - httpd
+    - php
+    - mariadb
+    

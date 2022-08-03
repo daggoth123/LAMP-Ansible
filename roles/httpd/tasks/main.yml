@@ -1,0 +1,10 @@
+- name: Install Epel-Release
+  yum:
+    name: epel-release
+    state: latest
+
+- name: Install Nginx
+  yum:
+    name: nginx
+    state: latest
+

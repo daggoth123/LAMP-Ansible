@@ -1,0 +1,23 @@
+- name: Enable PHP74
+  yum:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+    - yum-utils
+
+- name: Enable repo
+  shell: yum-config-manager --enable remi-php74
+
+- name: Install php74
+  yum:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - php74
+    - php74-php-soap
+    - php74-php-fileinfo
+    - php74-php-gd
+    - php74-php-imap
+    - php74-php-mysqlnd
+    - php74-php-pdo
