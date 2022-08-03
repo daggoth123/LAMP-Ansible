@@ -12,9 +12,8 @@
   - name: Backup SQL directory
     remote_user: root
     copy:
-      src: /var/lib/mysql
-      dest: /var/lib/mysql.bak
-      directory_mode=yes
+      src: /var/lib/mysql/
+      dest: /var/lib/mysql.bak/
       owner: mysql
       group: mysql
       mode: '0755'
