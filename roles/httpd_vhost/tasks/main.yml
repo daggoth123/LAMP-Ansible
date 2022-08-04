@@ -2,9 +2,9 @@
   shell: mkdir /home/"{{ user }}"/public_html/
 
 - name: Setup Vhost in Apache
-  shell: echo '<VirtualHost *:80>
+  shell: echo "<VirtualHost *:80>
     ServerName "{{ domain_name }}"
-    ServerAlias www."{{ domain_name}}"
+    ServerAlias www."{{ domain_name }}"
     ServerAdmin webmaster@"{{ domain_name }}"
     DocumentRoot /home/"{{ user }}"/public_html
 
@@ -15,7 +15,7 @@
 
     ErrorLog /var/log/httpd/"{{ domain_name }}"-error.log
     CustomLog /var/log/httpd/"{{ domain_name }}"-access.log combined
-</VirtualHost>' > /etc/httpd/conf.d/"{{ domain_name }}".conf
+    </VirtualHost>" > /etc/httpd/conf.d/"{{ domain_name }}".conf
 
 - name: Check syntax of httpd
   shell: httpd -t
