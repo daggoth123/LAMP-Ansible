@@ -15,7 +15,7 @@
 
     ErrorLog /var/log/httpd/"{{ domain_name }}"-error.log
     CustomLog /var/log/httpd/"{{ domain_name }}"-access.log combined
-</VirtualHost>'
+</VirtualHost>' > /etc/httpd/conf.d/"{{ domain_name }}".conf
 
 - name: Check syntax of httpd
   shell: httpd -t
