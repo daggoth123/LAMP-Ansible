@@ -18,12 +18,12 @@
   - ServerAlias www.{{ domain_name}}
   - ServerAdmin webmaster@{{ domain_name }}
   - DocumentRoot /home/{{ user }}/public_html
-  -  
+  - # space 
   - <Directory /home/{{ user }}/public_html>
   - Options -Indexes +FollowSymLinks
   - AllowOverride All
   - </Directory>
-  -  
+  - # space 
   - ErrorLog /var/log/httpd/{{ domain_name }}-error.log
   - CustomLog /var/log/httpd/{{ domain_name }}-access.log combined
   - </VirtualHost>
