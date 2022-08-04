@@ -9,7 +9,7 @@
 
 - name: Setup Vhost in Apache
   lineinfile:
-    path: /etc/httpd/conf.d/"{{ domain_name }}"
+    path: /etc/httpd/conf.d/"{{ domain_name }}".conf
     state: present
     line: "{{ item }}"
   with_items:
