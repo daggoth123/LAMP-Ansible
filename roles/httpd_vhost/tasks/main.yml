@@ -1,5 +1,5 @@
 - name: Create Docroot for site
-  shell: mkdir /home/"{{ user }}"/public_html/
+  shell: mkdir /home/{{ user }}/public_html/
 
 - name: Create file
   file:
@@ -18,13 +18,13 @@
   - ServerAlias www.{{ domain_name}}
   - ServerAdmin webmaster@{{ domain_name }}
   - DocumentRoot /home/{{ user }}/public_html
-  - # space 
-  - <Directory /home/{{ user }}/public_html>
+ 
+ - <Directory /home/{{ user }}/public_html>
   - Options -Indexes +FollowSymLinks
   - AllowOverride All
   - </Directory>
-  - # space 
-  - ErrorLog /var/log/httpd/{{ domain_name }}-error.log
+  
+- ErrorLog /var/log/httpd/{{ domain_name }}-error.log
   - CustomLog /var/log/httpd/{{ domain_name }}-access.log combined
   - </VirtualHost>
 
