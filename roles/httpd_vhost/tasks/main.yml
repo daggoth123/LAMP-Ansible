@@ -1,6 +1,12 @@
 - name: Create Docroot for site
   shell: mkdir /home/"{{ user }}"/public_html/
 
+- name: Create file
+  file:
+    path: /etc/httpd/conf.d/"{{ domain_name }}".conf
+    state: touch
+    mode: '0644'
+
 - name: Setup Vhost in Apache
   lineinfile:
     path: /etc/httpd/conf.d/"{{ domain_name }}"
