@@ -1,0 +1,8 @@
+- hosts: "{{ target }}"
+
+  name: Setup Apache Vhost
+
+  roles:
+    - user
+    - httpd_vhost
+    

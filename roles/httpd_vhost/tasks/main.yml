@@ -1,0 +1,28 @@
+- name: Create Docroot for site
+  shell: mkdir /home/"{{ user }}"/public_html/
+
+- name: Setup Vhost in Apache
+  shell: echo '<VirtualHost *:80>
+    ServerName "{{ domain_name }}"
+    ServerAlias www."{{ domain_name}}"
+    ServerAdmin webmaster@"{{ domain_name }}"
+    DocumentRoot /home/"{{ user }}"/public_html
+
+    <Directory /home/"{{ user }}"/public_html>
+        Options -Indexes +FollowSymLinks
+        AllowOverride All
+    </Directory>
+
+    ErrorLog /var/log/httpd/"{{ domain_name }}"-error.log
+    CustomLog /var/log/httpd/"{{ domain_name }}"-access.log combined
+</VirtualHost>'
+
+- name: Check syntax of httpd
+  shell: httpd -t
+
+- name: Restart httpd
+  service:
+    name: httpd
+    state: restarted
+
+  

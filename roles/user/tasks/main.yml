@@ -1,0 +1,4 @@
+- name: Create User
+  user:
+    name: "{{ user }}"
+    shell: /bin/bash
