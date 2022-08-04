@@ -2,20 +2,25 @@
   shell: mkdir /home/"{{ user }}"/public_html/
 
 - name: Setup Vhost in Apache
-  shell: echo "<VirtualHost *:80>/n
-    ServerName "{{ domain_name }}"/n
-    ServerAlias www."{{ domain_name }}"/n 
-    ServerAdmin webmaster@"{{ domain_name }}"/n
-    DocumentRoot /home/"{{ user }}"/public_html /n 
-
-    <Directory /home/"{{ user }}"/public_html>/n
-        Options -Indexes +FollowSymLinks/n
-        AllowOverride All/n
-    </Directory>/n
-
-    ErrorLog /var/log/httpd/"{{ domain_name }}"-error.log/n
-    CustomLog /var/log/httpd/"{{ domain_name }}"-access.log combined/n
-    </VirtualHost>" > /etc/httpd/conf.d/"{{ domain_name }}".conf/n
+  lineinfile:
+    path: /etc/httpd/conf.d/"{{ domain_name }}"
+    state: present
+    line: "{{ item }}"
+  with_items:
+  - <VirtualHost *:80>
+  - ServerName "{{ domain_name }}"
+  - ServerAlias www."{{ domain_name}}"
+  - ServerAdmin webmaster@"{{ domain_name }}"
+  - DocumentRoot /home/"{{ user }}"/public_html
+  - 
+  - <Directory /home/"{{ user }}"/public_html>
+  - Options -Indexes +FollowSymLinks
+  - AllowOverride All
+  - </Directory>
+  -
+  - ErrorLog /var/log/httpd/"{{ domain_name }}"-error.log
+  - CustomLog /var/log/httpd/"{{ domain_name }}"-access.log combined
+  - </VirtualHost>
 
 - name: Check syntax of httpd
   shell: httpd -t
