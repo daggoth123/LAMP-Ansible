@@ -20,7 +20,7 @@
     - php80-php-fpm
     
 - name: Change Port for each FPM PHP version
-  shell: sh /etc/ansible/roles/httpd_config/templates/sed.sh
+  shell: sh sed.sh
 
 - name: Start each PHP-FPM version
   service:
@@ -36,7 +36,7 @@
     - php80-php-fpm
 
 - name: Create wrappers for each PHP version
-  shell: sh /etc/ansible/roles/httpd_config/templates/wrapper.sh
+  shell: sh wrapper.sh
 
 - name: Change permissions to 755
   shell: find /var/www/cgi-bin/php* -exec chmod 755 {} \;
