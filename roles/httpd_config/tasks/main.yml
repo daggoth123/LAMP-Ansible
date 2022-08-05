@@ -109,7 +109,7 @@
 
 - name: Restart Services
   service:
-    name: " {{ item }}"
+    name: "{{ item }}"
     state: restarted
   with_items:
     - httpd
