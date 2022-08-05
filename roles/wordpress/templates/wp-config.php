@@ -23,7 +23,7 @@
 define( 'DB_NAME', '{{ wordpress_db }}');
 
 /** Database username */
-define( 'DB_USER', '{{ wordress_user }}');
+define( 'DB_USER', '{{ wordpress_user }}');
 
 /** Database password */
 define( 'DB_PASSWORD', '{{ password }}');
