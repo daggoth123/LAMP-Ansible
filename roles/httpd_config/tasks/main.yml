@@ -24,7 +24,7 @@
 
 - name: Start each PHP-FPM version
   service:
-    name: " {{ item }}"
+    name: "{{ item }}"
     state: started
     enabled: yes
   with_item:
