@@ -1,7 +1,7 @@
 - hosts: {{ target }}
 
-playbook_import: virtualhost.yml
-
   roles:
+    - user
+    - httpd_vhost 
     - wordpress
-    
+         
