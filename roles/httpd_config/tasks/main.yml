@@ -19,8 +19,16 @@
     - php80-php-mysqlnd
     - php80-php-fpm
     
-- name: Change Port for each FPM PHP version
-  shell: sh sed.sh
+- name: Copy script and change Port for each FPM PHP version
+  tasks:
+    - name: Transfer script
+      template:
+        src: sed.sh
+        dest: /home/scripts/
+    - name: Execute script
+      shell: sh /home/scripts/sed.sh
+
+  script: sh /etc/ansible/roles/httpd_config/templates/sed.sh
 
 - name: Start each PHP-FPM version
   service:
@@ -36,7 +44,13 @@
     - php80-php-fpm
 
 - name: Create wrappers for each PHP version
-  shell: sh wrapper.sh
+  tasks:
+    - name: Transfer script
+      template:
+        src: wrapper.sh
+        dest: /home/scripts/
+    - name: Execute script
+      shell: sh /home/scripts/wrapper.sh
 
 - name: Change permissions to 755
   shell: find /var/www/cgi-bin/php* -exec chmod 755 {} \;
