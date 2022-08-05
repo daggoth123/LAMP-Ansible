@@ -1,0 +1,7 @@
+- hosts: "{{ target }}"
+
+- import_playbook: virtualhost.yml
+
+  roles:
+    - wordpress
+    

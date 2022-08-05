@@ -5,13 +5,13 @@
 
 - name: Create Wordpress database
   mysql_db:
-    name: {{ wordpress_db }}
+    name: "{{ wordpress_db }}"
     state: present
 
 - name: Create Wordpress Username with all privledges to Wordpress database
   mysql_user:
-    name: {{ wordpress_user }}
-    password: {{ password }}
+    name: "{{ wordpress_user }}"
+    password: "{{ password }}"
     priv: '{{ wordpress_db }}.*:ALL'
     state: present
 
