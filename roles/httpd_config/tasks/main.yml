@@ -27,7 +27,7 @@
     name: "{{ item }}"
     state: started
     enabled: yes
-  with_item:
+  with_items:
     - php70-php-fpm
     - php71-php-fpm
     - php72-php-fpm
@@ -102,7 +102,7 @@
     name: " {{ item }}"
     state: started
     enabled: yes
-  with_item:
+  with_items:
     - httpd
     - php70-php-fpm
     - php71-php-fpm
