@@ -4,7 +4,7 @@
   vars:
     packages:
     - php70
-    - phpmysqlnd
+    - php70-php-mysqlnd
     - php70-php-fpm
     - php71
     - php71-php-mysqlnd
