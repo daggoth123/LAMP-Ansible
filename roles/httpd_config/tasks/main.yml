@@ -19,94 +19,94 @@
     - php80-php-mysqlnd
     - php80-php-fpm
     
-  - name: Change Port for each FPM PHP version
-    shell: sh /etc/ansible/roles/httpd_config/templates/sed.sh
+- name: Change Port for each FPM PHP version
+  shell: sh /etc/ansible/roles/httpd_config/templates/sed.sh
 
-  - name: Start each PHP-FPM version
-    service:
-      name: " {{ item }}"
-      state: started
-      enabled: yes
-    with_item:
-      - php70-php-fpm
-      - php71-php-fpm
-      - php72-php-fpm
-      - php73-php-fpm
-      - php74-php-fpm
-      - php80-php-fpm
+- name: Start each PHP-FPM version
+  service:
+    name: " {{ item }}"
+    state: started
+    enabled: yes
+  with_item:
+    - php70-php-fpm
+    - php71-php-fpm
+    - php72-php-fpm
+    - php73-php-fpm
+    - php74-php-fpm
+    - php80-php-fpm
 
-  - name: Create wrappers for each PHP version
-    shell: sh /etc/ansible/roles/httpd_config/templates/wrapper.sh
+- name: Create wrappers for each PHP version
+  shell: sh /etc/ansible/roles/httpd_config/templates/wrapper.sh
 
-  - name: Change permissions to 755
-    shell: find /var/www/cgi-bin/php* -exec chmod 755 {} \;
+- name: Change permissions to 755
+  shell: find /var/www/cgi-bin/php* -exec chmod 755 {} \;
   
-  - name: Remove php.conf
-    file:
-     path: /etc/httpd/conf.d/php.conf
-     state: absent
+- name: Remove php.conf
+  file:
+    path: /etc/httpd/conf.d/php.conf
+    state: absent
   
-  - name:
-    file:
-      path: /etc/httpd/conf.d/php.conf
-      state: present
+- name:
+  file:
+    path: /etc/httpd/conf.d/php.conf
+    state: present
   
-  - name:
-    lineinfile:
-      path: /etc/httpd/conf.d/php.conf
-      state: present
-      line: "{{ items }}"
-    with_items:
-    - ScriptAlias /cgi-bin/ "/var/www/cgi-bin/"
-    - AddHandler php56-fcgi .php
-    - Action php70-fcgi /cgi-bin/php70.fcgi
-    - Action php71-fcgi /cgi-bin/php71.fcgi
-    - Action php72-fcgi /cgi-bin/php72.fcgi
-    - Action php73-fcgi /cgi-bin/php73.fcgi
-    - Action php74-fcgi /cgi-bin/php74.fcgi
-    - Action php80-fcgi /cgi-bin/php80.fcgi
-    - "/n"
-    - <Directory /var/www/html/php70>
-    - DirectoryIndex index.php
-    - AllowOverride all
-    - Require all granted
-    - </Directory>
-    - <Directory /var/www/html/php71>
-    - DirectoryIndex index.php
-    - AllowOverride all
-    - Require all granted
-    - </Directory>
-    - <Directory /var/www/html/php72>
-    - DirectoryIndex index.php
-    - AllowOverride all
-    - Require all granted
-    - </Directory>
-    - <Directory /var/www/html/php73>
-    - DirectoryIndex index.php
-    - AllowOverride all
-    - Require all granted
-    - </Directory>
-    - <Directory /var/www/html/php74>
-    - DirectoryIndex index.php
-    - AllowOverride all
-    - Require all granted
-    - </Directory>
-    - <Directory /var/www/html/php80>
-    - DirectoryIndex index.php
-    - AllowOverride all
-    - Require all granted
-    - </Directory>
+- name:
+  lineinfile:
+    path: /etc/httpd/conf.d/php.conf
+    state: present
+    line: "{{ items }}"
+  with_items:
+  - ScriptAlias /cgi-bin/ "/var/www/cgi-bin/"
+  - AddHandler php56-fcgi .php
+  - Action php70-fcgi /cgi-bin/php70.fcgi
+  - Action php71-fcgi /cgi-bin/php71.fcgi
+  - Action php72-fcgi /cgi-bin/php72.fcgi
+  - Action php73-fcgi /cgi-bin/php73.fcgi
+  - Action php74-fcgi /cgi-bin/php74.fcgi
+  - Action php80-fcgi /cgi-bin/php80.fcgi
+  - "/n"
+  - <Directory /var/www/html/php70>
+  - DirectoryIndex index.php
+  - AllowOverride all
+  - Require all granted
+  - </Directory>
+  - <Directory /var/www/html/php71>
+  - DirectoryIndex index.php
+  - AllowOverride all
+  - Require all granted
+  - </Directory>
+  - <Directory /var/www/html/php72>
+  - DirectoryIndex index.php
+  - AllowOverride all
+  - Require all granted
+  - </Directory>
+  - <Directory /var/www/html/php73>
+  - DirectoryIndex index.php
+  - AllowOverride all
+  - Require all granted
+  - </Directory>
+  - <Directory /var/www/html/php74>
+  - DirectoryIndex index.php
+  - AllowOverride all
+  - Require all granted
+  - </Directory>
+  - <Directory /var/www/html/php80>
+  - DirectoryIndex index.php
+  - AllowOverride all
+  - Require all granted
+  - </Directory>
 
-  - name: Restart Services
-    service:
-      name: " {{ item }}"
-      state: started
-      enabled: yes
-    with_item:
-      - httpd
-      - php70-php-fpm
-      - php71-php-fpm
-      - php72-php-fpm
-      - php73-php-fpm
-      - php74-php-fpm
-      - php80-php-fpm
+- name: Restart Services
+  service:
+    name: " {{ item }}"
+    state: started
+    enabled: yes
+  with_item:
+    - httpd
+    - php70-php-fpm
+    - php71-php-fpm
+    - php72-php-fpm
+    - php73-php-fpm
+    - php74-php-fpm
+    - php80-php-fpm
