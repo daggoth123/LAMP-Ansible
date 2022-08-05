@@ -29,7 +29,7 @@
     dest: /home/{{ user }}/public_html/
 
 - name: Install Wordpress via wp-cli
-  shell: wp core install --url={{ domain_name }} --title="My site" --admin_name=admin --admin_password={{ wordpress_pass }} --admin_email=admin@{{ domain_name }}.com
+  shell: cd /home/{{ user }}/public_html/ ; wp core install --url={{ domain_name }} --title="My site" --admin_name=admin --admin_password={{ wordpress_pass }} --admin_email=admin@{{ domain_name }}.com
 
 - name: Create .htaccess file
   file:
