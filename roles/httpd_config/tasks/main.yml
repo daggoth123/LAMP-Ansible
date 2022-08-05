@@ -110,8 +110,7 @@
 - name: Restart Services
   service:
     name: " {{ item }}"
-    state: started
-    enabled: yes
+    state: restarted
   with_items:
     - httpd
     - php70-php-fpm
