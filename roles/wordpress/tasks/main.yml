@@ -3,6 +3,11 @@
     name: wp-cli
     state: latest
 
+- name: Install MySQL-python
+  yum:
+    name: MySQL-python
+    state: latest
+
 - name: Create Wordpress database
   mysql_db:
     name: "{{ wordpress_db }}"
@@ -25,11 +30,6 @@
 
 - name: Install Wordpress via wp-cli
   shell: wp core install --url={{ domain_name }} --title="My site" --admin_name=admin --admin_password={{ wordpress_pass }} --admin_email=admin@{{ domain_name }}.com
-
-- name: Install MySQL-python
-  yum:
-    name: MySQL-python
-    state: latest
 
 - name: Create .htaccess file
   file:
