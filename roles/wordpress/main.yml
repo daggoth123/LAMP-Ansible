@@ -24,7 +24,12 @@
     dest: /home/{{ user }}/public_html/
 
 - name: Install Wordpress via wp-cli
-  shell: wp core install --url={{ domain_name }} --title="My site" --admin_name={{ wordpress_admin }} --admin_password={{ wordpress_pass }} --admin_email=admin@{{ domain_name }}.com
+  shell: wp core install --url={{ domain_name }} --title="My site" --admin_name=admin --admin_password={{ wordpress_pass }} --admin_email=admin@{{ domain_name }}.com
+
+- name: Install MySQL-python
+  yum:
+    name: MySQL-python
+    state: latest
 
 - name: Create .htaccess file
   file:
