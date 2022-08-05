@@ -59,7 +59,7 @@
 - name:
   file:
     path: /etc/httpd/conf.d/php.conf
-    state: present
+    state: touch
   
 - name:
   lineinfile:
