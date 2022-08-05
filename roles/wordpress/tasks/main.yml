@@ -6,7 +6,7 @@
 - name: Install MySQL-python
   yum:
     name: MySQL-python
-    state: latest
+    state: latestls -l rol
 
 - name: Create Wordpress database
   mysql_db:
@@ -21,7 +21,7 @@
     state: present
 
 - name: Install Wordpress on site
-  shell: cd /home/{{ user }}/public_html/ ; wp core download ; wp core config --dbhost.db=localhost --dbname={{ wordpress_db }} --dbuser= {{ wordpres_user }} --dbpass={{ password }}
+  shell: cd /home/{{ user }}/public_html/ ; wp core download ; wp core config --dbhost.db=localhost --dbname={{ wordpress_db }} --dbuser= {{ wordpress_user }} --dbpass={{ password }}
 
 - name: Utilize wp-config.php template file
   template:
