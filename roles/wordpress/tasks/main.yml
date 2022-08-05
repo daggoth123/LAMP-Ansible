@@ -25,7 +25,7 @@
 
 - name: Utilize wp-config.php template file
   template:
-    src: /etc/ansible/roles/wordpress/templates/wp-config.php
+    src: wp-config.php
     dest: /home/{{ user }}/public_html/
 
 - name: Install Wordpress via wp-cli
