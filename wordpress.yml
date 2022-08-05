@@ -1,6 +1,6 @@
-- hosts: "{{ target }}"
+- hosts: {{ target }}
 
-- import_playbook: virtualhost.yml
+playbook_import: virtualhost.yml
 
   roles:
     - wordpress

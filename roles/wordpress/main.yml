@@ -1,0 +1,49 @@
+- name: Install wp-cli
+  yum:
+    name: wp-cli
+    state: latest
+
+- name: Create Wordpress database
+  mysql_db:
+    name: "{{ wordpress_db }}"
+    state: present
+
+- name: Create Wordpress Username with all privledges to Wordpress database
+  mysql_user:
+    name: "{{ wordpress_user }}"
+    password: "{{ password }}"
+    priv: '{{ wordpress_db }}.*:ALL'
+    state: present
+
+- name: Install Wordpress on site
+  shell: cd /home/{{ user }}/public_html/ ; wp core download ; wp core config --dbhost.db=localhost --dbname={{ wordpress_db }} --dbuser= {{ wordpres_user }} --dbpass={{ password }}
+
+- name: Utilize wp-config.php template file
+  template:
+    src: /etc/ansible/roles/wordpress/templates/wp-config.php
+    dest: /home/{{ user }}/public_html/
+
+- name: Install Wordpress via wp-cli
+  shell: wp core install --url={{ domain_name }} --title="My site" --admin_name={{ wordpress_admin }} --admin_password={{ wordpress_pass }} --admin_email=admin@{{ domain_name }}.com
+
+- name: Create .htaccess file
+  file:
+    path: /home/{{ user }}/public_html/.htaccess
+    state: touch
+    mode: '0644'
+    
+- name:
+  lineinfile:
+    path: /home/{{ user }}/public_html/.htaccess
+    state: present
+    line: "{{ item }}"
+  with_items:
+  - RewriteEngine On
+  - RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+  - RewriteBase /
+  - RewriteRule ^index\.php$ - [L]
+  - RewriteCond %{REQUEST_FILENAME} !-f
+  - RewriteCond %{REQUEST_FILENAME} !-d
+  - RewriteRule . /index.php [L]
+
+
