@@ -1,0 +1,6 @@
+- hosts: "{{ target }}"
+
+  name: Configure Multiple PHP versions Apache
+  
+  roles:
+    - httpd_config
