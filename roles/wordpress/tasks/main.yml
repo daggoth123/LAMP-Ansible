@@ -43,6 +43,8 @@
     state: present
     line: "{{ item }}"
   with_items:
+  - Directoryindex index.php
+  - "\n"
   - RewriteEngine On
   - RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
   - RewriteBase /
@@ -50,7 +52,7 @@
   - RewriteCond %{REQUEST_FILENAME} !-f
   - RewriteCond %{REQUEST_FILENAME} !-d
   - RewriteRule . /index.php [L]
-  - "/n"
+  - "\n"
   - AddHandler {{ php_version }}-fcgi .php
 
 

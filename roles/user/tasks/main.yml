@@ -2,3 +2,6 @@
   user:
     name: "{{ user }}"
     shell: /bin/bash
+
+- name: Change permissions of directory
+  shell: chmod 755 /home/{{ user }}
