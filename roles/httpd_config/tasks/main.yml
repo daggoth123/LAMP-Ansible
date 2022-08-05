@@ -65,7 +65,7 @@
   lineinfile:
     path: /etc/httpd/conf.d/php.conf
     state: present
-    line: "{{ items }}"
+    line: "{{ item }}"
   with_items:
   - ScriptAlias /cgi-bin/ "/var/www/cgi-bin/"
   - AddHandler php56-fcgi .php
