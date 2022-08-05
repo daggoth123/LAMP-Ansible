@@ -1,6 +1,6 @@
 - name: Install PHP packages
   yum:
-    name: " {{ packages }}"
+    name: "{{ packages }}"
   vars:
     packages:
     - php70
