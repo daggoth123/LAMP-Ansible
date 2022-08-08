@@ -1,9 +1,6 @@
-- name: Wget CSF
-  shell: cd /home/temp/ ; wget https://download.configserver.com/csf.tgz
-
-- name: Extract tar CSF
+- name: Download and extract CSF
   unarchive:
-    src: /home/temp/csf.tgz
+    src: wget https://download.configserver.com/csf.tgz
     dest: /home/temp/csf
   
 - name: Install CSF
