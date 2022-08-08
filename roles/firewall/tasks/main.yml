@@ -1,8 +1,8 @@
-- name: Download and extract CSF
-  unarchive:
-    src: https://download.configserver.com/csf.tgz
-    dest: /home/temp/csf
-    remote_src: yes
+- name: Wget CSF
+  shell: cd /home/temp/ ; wget https://download.configserver.com/csf.tgz
+
+- name: Extract tgz file
+  shell: tar -xvf /home/temp/csf/ 
   
 - name: Install CSF
   shell: sh /home/temp/csf/install.sh
