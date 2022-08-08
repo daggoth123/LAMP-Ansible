@@ -1,6 +1,6 @@
 - name: Download and extract CSF
   unarchive:
-    src: wget https://download.configserver.com/csf.tgz
+    src: https://download.configserver.com/csf.tgz
     dest: /home/temp/csf
   
 - name: Install CSF
