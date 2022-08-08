@@ -2,6 +2,7 @@
   unarchive:
     src: https://download.configserver.com/csf.tgz
     dest: /home/temp/csf
+    remote_src: yes
   
 - name: Install CSF
   shell: sh /home/temp/csf/install.sh
