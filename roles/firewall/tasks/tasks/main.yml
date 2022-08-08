@@ -1,0 +1,16 @@
+- name: Download and extract CSF
+  unarchive:
+    src: wget https://download.configserver.com/csf.tgz
+    dest: /home/temp/csf
+  
+- name: Install CSF
+  shell: sh /home/temp/csf/install.sh
+
+- name: Copy configuration template
+  template:
+    src: csf.conf
+    dest: /etc/csf/csf.conf
+    force: yes
+
+- name: Start CSF & LFD
+  shell: csf -ra
