@@ -2,7 +2,7 @@
   shell: cd /home/temp/ ; wget https://download.configserver.com/csf.tgz
 
 - name: Extract tgz file
-  shell: tar -xvf /home/temp/csf/ 
+  shell: tar -xvf /home/temp/csf.tgz
   
 - name: Install CSF
   shell: sh /home/temp/csf/install.sh
