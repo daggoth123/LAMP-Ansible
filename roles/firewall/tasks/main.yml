@@ -11,7 +11,7 @@
   shell: tar -xvf /home/temp/csf.tgz -C /home/temp/csf
   
 - name: Install CSF
-  shell: sh /home/temp/csf/csf/install.sh
+  shell: cd /home/temp/csf/csf/ ; sh /home/temp/csf/csf/install.generic.sh
 
 - name: Remove CSF directory
   file:
