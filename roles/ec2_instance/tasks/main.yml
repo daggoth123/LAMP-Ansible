@@ -5,7 +5,7 @@
     image: ami-092b43193629811af
     wait: yes
     count: 1
-    vpc_subnet_id: subnet-03922064f8e389337
+    vpc_subnet_id: subnet-03922064f9e389337
     assign_public_ip: yes
     keypair: Shane
     aws_region: us-east-2
