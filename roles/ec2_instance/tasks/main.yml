@@ -1,0 +1,13 @@
+- name: Start EC2 instance
+  ec2:
+    group_id: launch-wizard-1
+    instance_type: t2.micro
+    image: ami-092b43193629811af
+    wait: yes
+    count: 1
+    vpc_subnet_id: subnet-03922064f8e389337
+    assign_public_ip: yes
+    keypair: Shane
+    aws_region: us-east-2
+    aws_access_key: "{{ access_key }}"
+    aws_secret_key: "{{ secret_key }}"
