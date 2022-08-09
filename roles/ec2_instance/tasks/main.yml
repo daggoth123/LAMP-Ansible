@@ -1,6 +1,6 @@
 - name: Start EC2 instance
   ec2:
-    group_id: launch-wizard-1
+    group_id: sg-02217564579113363
     instance_type: t2.micro
     image: ami-092b43193629811af
     wait: yes
