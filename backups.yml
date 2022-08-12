@@ -1,0 +1,5 @@
+- hosts: "{{ target }}"
+  name: Create daily backups
+
+  roles:
+  - daily_backups
