@@ -5,10 +5,10 @@
     mode: '0755'
 
 - name: Backup all home user folders
-  shell: mkdir -p /backup/"$(date +"%m-%d-%Y")"/ ; for each in $(ls -d /home/* | cut -d "/" -f3-); do if grep -q $each /etc/passwd; then tar -czf /backup/"$(date +"%d-%m-%Y")"/$each.tar.gz /home/$each/; fi; done
+  shell: mkdir -p /backup/"$(date +"%m-%d-%Y")"/ ; for each in $(ls -d /home/* | cut -d "/" -f3-); do if grep -q $each /etc/passwd; then tar -czf /backup/"$(date +"%m-%d-%Y")"/$each.tar.gz /home/$each/; fi; done
 
 - name: Dump MySQL backups 
-  shell: mkdir -p /backup/"$(date +"%m-%d-%Y")"/mysql/; echo "show databases;" |mysql -Bs| while read i; do echo Dumping $i ; mysqldump --single-transaction $i | gzip -c > /backup/"$(date +"%d-%m-%Y")"/mysql/$i.sql.gz ; done
+  shell: mkdir -p /backup/"$(date +"%m-%d-%Y")"/mysql/; echo "show databases;" |mysql -Bs| while read i; do echo Dumping $i ; mysqldump --single-transaction $i | gzip -c > /backup/"$(date +"%m-%d-%Y")"/mysql/$i.sql.gz ; done
 
 - name: Remove backups older than a week
   shell: find /backup/*/ -mtime +7 -type d -exec rm -rf {} \;
