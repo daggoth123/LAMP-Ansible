@@ -5,4 +5,9 @@
   when install_state == 'install'
 
 - name: Uninstall state
-  include_tasls: uninstall.yml
+  include_tasks: uninstall.yml
+  when install_state == 'uninstall'
+
+- name: reinstall
+  include_tasks: reinstall.yml
+  install_state == 'reinstall'
