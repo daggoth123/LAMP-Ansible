@@ -1,13 +1,10 @@
 ---
 # tasks file for bigfix
-- name: Install state 
   include_tasks: install.yml
-  when install_state == 'install'
+  when: install_state == 'install'
 
-- name: Uninstall state
   include_tasks: uninstall.yml
-  when install_state == 'uninstall'
+  when: install_state == 'uninstall'
 
-- name: reinstall
   include_tasks: reinstall.yml
-  install_state == 'reinstall'
+  when: install_state == 'reinstall'
