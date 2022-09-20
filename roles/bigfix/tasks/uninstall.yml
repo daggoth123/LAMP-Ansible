@@ -1,0 +1,4 @@
+- name: uninstall mailx
+  yum:
+    name: mailx
+    state: absent
