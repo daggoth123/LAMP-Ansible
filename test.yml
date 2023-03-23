@@ -1,6 +1,7 @@
 - name: test playbook
-  hosts: localhost
+  hosts: "{{ target }}"
   tasks:
   - name: Add mappings to /etc/hosts
-    shell: ifconfig |grep broadcast |awk '{print $2}'
- 
+    reboot:
+      reboot_timeout: 600
+      test_command: uptime
